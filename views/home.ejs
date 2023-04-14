@@ -1,12 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>welcome its home</title>
-</head>
-<body>
-    <h1>welcome to the home..</h1>
-</body>
-</html>
+<link rel="stylesheet" href="/css/home.css">
+<div id="home-container">
+    <section id="feed">
+        <% if(locals.user) {%>
+        <h1>Hi <%= locals.user.name %> , welcome to Socio</h1>
+        <%}else{%>
+            <h1>Hi, welcome to Socio</h1>
+            <h3>Please Login to post Your thoughts</h3>
+        <%}%>
+    <p>Post your thoughts , comment your thoughts on others posts</p>
+        <!-- show create post form if only user is logged in -->
+        <% if(locals.user) {%>
+            <h4>Post from here</h4>
+        <form action="/posts/create" id="new-post-form" method="post">
+            <textarea name="content" id="" cols="25" rows="3"></textarea>
+            <input type="submit" value="Post">
+        </form>
+    <% } %>
+        <h2>Posts</h2>
+        <div id = "post-list-container">
+            <%- include("_post.ejs") -%>
+        </div>
+
+    </section>
+    <% if(locals.user) {%>
+    <section id="user-friends">
+        <h2>Friends</h2>
+            <% for (user of all_users){ %>
+         <p>
+                <a href="/users/profile/<%=user._id %>"><%= user.name %></a>
+         </p>
+             <%}%>
+    </section>
+<%}%>
+<%- include('_chat_box') -%>
+</div>
+<script src="/js/home_posts.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.esm.min.js.map"></script>
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user){ %>
+    <script >
+         //call the chatEngine class here
+         new chatEngine('user-chat-box','<%= locals.user._id %>')
+    </script>
+<% } %>

@@ -1,0 +1,13 @@
+body {
+  background-color: whitesmoke;
+}
+
+#del {
+  color: gray;
+}
+
+#del:hover {
+  color: #00A0C6;
+  text-decoration: none;
+  cursor: pointer;
+}

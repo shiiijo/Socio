@@ -1,0 +1,15 @@
+<header>
+<div id="handle">
+<h2><i class="fa-sharp fa-regular fa-people-arrows"></i> SOCIO</h2>
+</div>
+<div id="login">
+        <a href="/" id="nav">Home </a>|           
+        <% if(locals.user){ %>
+                <span>| <%=locals.user.name %> | </span>
+                    <a href="/users/sign-out" id="nav"> Sign Out</a>
+       <% } else { %>
+            <a href="/users/sign-in" id="nav">Sign In | </a>
+            <a href="/users/sign-up" id="nav">Sign Up</a>
+       <%}%>
+      </div>
+</header>

@@ -1,0 +1,24 @@
+<ol>
+    <% for (post of posts){ %>
+     <br>
+ <p>
+     <li>
+         <%= post.content %>
+         <br>
+         <small>
+             post created by : <%= post.user.name %>
+         </small>
+     </li>
+     <div class = "post-comments">
+        <%- include("_comment.ejs") -%>
+
+         </div>
+     </div>
+     <div>
+         <% if(locals.user && locals.user.id == post.user.id){%>
+             <small><a href="/posts/destroy/<%= post.id %>" id="del">Delete Post</a></small>
+             <% } %>
+     </div>
+ </p>
+     <%}%>
+ </ol>
