@@ -18,3 +18,4 @@ To run locally ```node index.js``` or ```nodemon index.js``` (if nodemon install
 8. Users can post their blogs and others can comment on other's posts/blogs
 9. Authenticated users can do ```CRUD``` operation on their posts/blogs
 10. Chat Engine is integrated with the web app using ```socket.io```
+11. Mail notification service is integrated using ```node-mailer``` , it will notify users once post, and comments are added or received
