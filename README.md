@@ -8,7 +8,7 @@ To run locally ```node index.js``` or ```nodemon index.js``` (if nodemon install
 
 ## Web app features
 
-1. web app is supported with database supported 
+1. web app is supported with database 
 2. Database used is ```Mongodb```
 3. Users can register themselves, and data will be persisted using a database connection
 4. User can log in using authenticated details
